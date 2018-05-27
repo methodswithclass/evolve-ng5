@@ -1,7 +1,6 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const sass = require("node-sass");
 
 const config = require("./config.js");
 const middleware = require("./middleware/middleware.js");
@@ -15,8 +14,6 @@ const writingRoutes = require("./backend/routes/write-image.js");
 const trashRoutes = require("./backend/routes/programs/trash.js");
 const recognizeRoutes = require("./backend/routes/programs/recognize.js");
 
-const get = require("./backend/evolve-app/data/get/get.js");
-
 
 
 var PORTS = {
@@ -27,11 +24,6 @@ var PORTS = {
 	misc2:4200,
 	misc3:4210
 }
-
-
-
-
-// middleware.compileSass();
 
 
 
