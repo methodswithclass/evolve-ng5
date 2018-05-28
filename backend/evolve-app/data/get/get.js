@@ -1,9 +1,9 @@
 
 
-// var evolveFact = require("mc-evolve");
-var evolveFact = require("../../__ga/evolve_async.js");
-// var g = require("mc-shared").utility_service;
-var g = require("../../__ga/shared.js").utility_service;
+var evolveFact = require("mc-evolve");
+// var evolveFact = require("../../__.ga/evolve_async.js");
+var g = require("mc-shared").utility_service;
+// var g = require("../../__.ga/shared.js").utility_service;
 
 var SESSION_EXPIRY = 3600*24*1000;
 
@@ -40,7 +40,7 @@ var makeProgramString = function ($options) {
 		typeString += "-types/" + program + "_" + options.processType + ".js";
 	}
 
-	
+
 	programString += ((program == "trash") ? typeString : "");
 
 
@@ -104,7 +104,7 @@ var createSessionEvolve = function (session) {
 	evolve[session] = {};
 	evolve[session].evolve = makeEvolve();
 	evolve[session].expires = expires.getTime();
-	
+
 	return evolve[session].evolve;
 }
 
@@ -112,7 +112,7 @@ var addProgramToSession = function (input) {
 
 	var name = input.name ? input.name : undefined;
 	var session = input.session ? input.session : undefined;
-	
+
 	var programString = makeProgramString(input);
 
 	console.log("add program to session", session, programString);

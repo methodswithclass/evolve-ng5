@@ -6,9 +6,6 @@ var trashRouter = trashExpress.Router();
 var get = require("../../evolve-app/data/get/get.js");
 
 
-var db = require("../db.js");
-
-
 trashRouter.post("/simulate", function (req, res, next) {
 
 
@@ -36,7 +33,7 @@ trashRouter.post("/environment/refresh", function (req, res, next) {
 	var env = trash.refresh(input.programInput);
 
 	// console.log("env", env);
-	
+
 
 	res.json({env:env});
 

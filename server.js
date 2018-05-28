@@ -5,12 +5,13 @@ const bodyParser = require("body-parser");
 const config = require("./config.js");
 const middleware = require("./middleware/middleware.js");
 
+var livereload = require('connect-livereload');
 
 const app = express();
 
 
 const evolveRoutes = require("./backend/routes/evolving.js");
-const writingRoutes = require("./backend/routes/write-image.js");
+// const writingRoutes = require("./backend/routes/write-image.js");
 const trashRoutes = require("./backend/routes/programs/trash.js");
 const recognizeRoutes = require("./backend/routes/programs/recognize.js");
 
@@ -20,9 +21,9 @@ var PORTS = {
 	heroku:8080,
 	http:80,
 	livereload:config.livereloadPort,
-	misc1:3000,
-	misc2:4200,
-	misc3:4210
+	misc1:3001,
+	misc2:4201,
+	misc3:4211
 }
 
 
@@ -39,13 +40,13 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 
 app.use("/evolve", evolveRoutes);
-app.use("/write", writingRoutes);
+// app.use("/write", writingRoutes);
 app.use("/trash", trashRoutes);
 app.use("/recognize", recognizeRoutes);
 
 
 
-app.use(require('connect-livereload')({
+app.use(livereload({
 	port: PORTS.livereload
 }));
 

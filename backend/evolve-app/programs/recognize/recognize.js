@@ -1,7 +1,4 @@
 
-var mongoose = require("mongoose");
-var db = require("../../../routes/db.js");
-var Image = "../../data/models/Image.js";
 
 
 var d = require("../../data/programs/recognize.js");
@@ -38,7 +35,7 @@ var recognize = function (options) {
 
 
 	self.gene = function () {
-		
+
 		return Math.random()*generange + geneoffset;
 	}
 
@@ -106,7 +103,7 @@ var recognize = function (options) {
 	        	}
 
 	        }
-	        
+
 	    }
 
 	    // console.log("dna", $dna);
@@ -147,7 +144,7 @@ var recognize = function (options) {
 	var assignDNAWeights = function (net, $dna) {
 
 		// console.log("assign weights net", net);
-		
+
 		var layer;
 		var inputLayer;
 		var dnaSegment;
@@ -195,7 +192,7 @@ var recognize = function (options) {
 		var inputs = [];
 
 		// console.log("image input", input);
-		
+
 		var pixels = net[0].getNodes();
 
 		for (var i in pixels) {
@@ -237,20 +234,20 @@ var recognize = function (options) {
 			}
 
 			net[i].setLayer(layer.getNodes());
-			
+
 		}
 
 		// console.log("assign image inputs", net);
 
 		return net;
-		
+
 	}
 
 	var outputFromNeuralNet = function  (net) {
 
 		var node;
 		var result = [];
-		
+
 		// console.log("output net", net)
 
 		layer = net[net.length-1];
@@ -286,7 +283,7 @@ var recognize = function (options) {
 		var i = 0;
 
 		// net = makeNeuralNet();
-		
+
 		dna = makeGenome(function () {
 
 			return bestDNA[i++]
@@ -300,7 +297,7 @@ var recognize = function (options) {
 
 
 		complete(output);
-		
+
 
 	}
 
@@ -342,7 +339,7 @@ var recognize = function (options) {
 			penalty = (-1)*incorrectGuessPenalty;
 
 		}
-		
+
 
 
 		var fit = reward - penalty;
@@ -382,7 +379,7 @@ var recognize = function (options) {
 		output = outputFromNeuralNet(net);
 		fit = getFitness(output, label);
 		fits.push({fitness:fit});
-		
+
 
 		// console.log("run", params.gen, params.index, $run, fit);
 

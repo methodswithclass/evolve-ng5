@@ -3,8 +3,7 @@ var robotFact = require("../robot.js");
 var environmentFact = require("../environment.js");
 var d = require("../../../data/programs/trash.js");
 var g = require("mc-shared").utility_service;
-// var g = require("../../../__ga/shared.js").utility_service;
-// var Worker = require("webworker-threads").Worker;
+// var g = require("../../../__.ga/shared.js").utility_service;
 
 
 var trash = function (options) {
@@ -36,8 +35,7 @@ var trash = function (options) {
 	var types = {
 		recursive:"recursive",
 		loop:"loop",
-		async:"async",
-		worker:"worker"
+		async:"async"
 	}
 
 	var type = options.processType;
@@ -70,7 +68,7 @@ var trash = function (options) {
 
 			self.robot = new robotFact();
 			self.environment = new environmentFact();
-			
+
 			self.setup = function($options) {
 
 				self.robot.setup(self.environment, $options);
@@ -205,7 +203,7 @@ var trash = function (options) {
 
 		var doRun = function ($$run, params) {
 
-			
+
 			return new Promise(function (resolve, reject) {
 
 
@@ -251,7 +249,7 @@ var trash = function (options) {
 			$run++;
 
 		}
-	
+
 	}
 
 	self.run = function (params, complete) {
@@ -279,7 +277,7 @@ var trash = function (options) {
 
 
 
-		performRun(0, params, 
+		performRun(0, params,
 		    function (fits) {
 
 				avgfit = g.avgArray({
@@ -310,7 +308,7 @@ var trash = function (options) {
 	}
 
 	self.reset = function () {
-		
+
 		// env.reset();
 		// robot.reset();
 
@@ -329,7 +327,7 @@ var trash = function (options) {
 	}
 
 	self.instruct = function (genome) {
-		
+
 		console.log("instruct robot");
 		// robot.instruct(genome);
 		// robot.reset();
@@ -349,7 +347,7 @@ var trash = function (options) {
 
 		simulation = createRunEnvironment();
 
-		
+
 		simulation.refresh(options);
 
 	}
