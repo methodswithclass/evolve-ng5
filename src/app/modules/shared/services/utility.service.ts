@@ -3,6 +3,24 @@ import { Injectable } from '@angular/core';
 import * as $ from 'jquery';
 
 
+import * as $shared from "mc-shared";
+
+
+var g = $shared.utility_service;
+var send = $shared.send_service;
+var react = $shared.react_service;
+var events = $shared.events_service;
+
+
+export var shared = {
+	g:g,
+	send:send,
+	react:react,
+	events:events
+}
+
+
+
 const monthNames = [
 "January", "February", "March",
 "April", "May", "June", "July",
@@ -121,7 +139,7 @@ export class UtilityService {
 
 					}
 					else {
-						
+
 						$key = keyArray[index]
 
 						// console.log("the module configuration for", data.name, "has reached it's search depth for key series", keyArray, "returning last value", obj[$key], "for key", $key);

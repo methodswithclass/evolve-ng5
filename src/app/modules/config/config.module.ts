@@ -31,11 +31,6 @@ export function loadConfig(config: AppConfig) : Function {
 export class ConfigModule {
 
 
-	constructor (private config: AppConfig) {}
-
-	public addOptions($options) {
-
-		this.config.addOptions($options);
-	}
+	constructor () {}
 
 }
